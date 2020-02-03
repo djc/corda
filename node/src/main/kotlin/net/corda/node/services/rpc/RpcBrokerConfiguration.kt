@@ -55,6 +55,8 @@ internal class RpcBrokerConfiguration(baseDirectory: Path, maxMessageSize: Int, 
             "${RPCApi.RPC_CLIENT_QUEUE_NAME_PREFIX}.$username.#" to setOf(nodeInternalRole, restrictedRole(
                     "${RPCApi.RPC_CLIENT_QUEUE_NAME_PREFIX}.$username",
                     consume = true,
+                    createDurableQueue = true,
+                    deleteDurableQueue = true,
                     createNonDurableQueue = true,
                     deleteNonDurableQueue = true)
             )
